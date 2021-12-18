@@ -1,0 +1,335 @@
+:root {
+    /*Definimos nuestra paleta de colores*/
+    --blanco : #fff;
+    --oscuro : #212121;
+    --primario : #FFC107;
+    --secundario: #0097A7;
+    --gris: #757575;
+    --grisClaro: #DFE9F3;
+
+}
+/* Globales */
+/*
+Haciendo un estándar con rem, se estableció esta norma
+para poder trabajar con rem con unidades de 10px
+*/
+html {
+    font-size: 62.5%;
+    box-sizing: border-box; /* Hack para box model */
+    scroll-snap-type: y mandatory;
+}
+
+.servicios, .navegacion-principal, .formulario {
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+}
+
+/* https://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+    font-size: 16px; /* Un 1 rem = 16px, pero con 62.5% es 1rm = 10px*/
+    font-family: 'Noto Sans JP', sans-serif;    
+    background-image: linear-gradient(to top, var(--grisClaro) 0%, var(--blanco) 100%);
+}
+
+.contenedor {
+    /* width: 120rem; */
+    /*Toma 120rem si es disponobles sino toma 100%*/
+    max-width: 120rem;
+    margin: 0 auto; /* centrar elemento*/
+}
+
+.boton {
+    background-color: var(--secundario);
+    color: var(--blanco);
+    padding: 1rem 2rem;
+    margin-top: 0rem;
+    font-size: 2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: .5rem;
+    width: 90%;
+    text-align: center;
+    border: none;
+}
+
+@media (min-width: 768px) {
+    .boton {
+        width: auto; /* Resetea la anchura */
+    }
+}
+
+.boton:hover {
+    cursor: pointer;
+}
+
+.sombra {
+    /* webkit: engine Chrome; 
+     * moz: engine firefox;
+     * Prefijos que se agregaban cuando no eran soportadas por el 
+     * nevegador, por defecto, asi al agregar el prefijo -webkit
+     * se hacia una estilo para esa propiedad.
+     * Cuando una propiedad es estandar ya no es necesaria.
+     */ 
+    /* -webkit-box-shadow: 7px 16px 30px -11px rgba(0,0,0,0.7); */
+    /* -moz-box-shadow: 7px 16px 30px -11px rgba(0,0,0,0.7); */
+    box-shadow: 7px 16px 30px -11px rgba(0,0,0,0.7);
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 2rem;
+}
+
+/* Tipografia */
+h1 {
+    font-size: 3.8rem;
+}
+
+h2 {
+    font-size: 2.8rem;
+}
+
+h3 {
+    font-size: 1.8rem;
+}
+
+h1, h2 , h3 {
+    text-align: center;
+}
+
+/* Al elegir un google font con un weight
+ * Los parafos y links utilizara el font weitgh @400 (normal)
+ * Y los titulos utilizaran un font weitgh @700 (bold)
+ * Si en la font elegires @100, @200,@300,@400,...,@700
+ * Le correspondera con los valores thin,small,normal,semibold...
+ * 
+ */
+
+.titulo span {
+    font-size: 2rem;
+}
+
+/* Enfoque de utilidades */
+.w-sm-100 {
+    width: 100%;
+}
+@media (min-width: 768px) {
+    .w-sm-100 {
+        width: auto;
+    }
+}
+.flex {
+    display: flex;
+}
+.alinear-derecha {
+    justify-content: flex-end;
+}
+.nav-bg {
+    background-color: var(--secundario);    
+}
+.navegacion-principal {
+    /*Ya que background color es una propoedad que hereda a sus hijos, ya no sera necesario cambiar de color */
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+}
+
+@media (min-width: 768px) {
+    .navegacion-principal {
+        flex-direction: row; /*Ya que hereda display: flex;*/
+        justify-content: space-between;
+    }
+}
+
+/* Selector descendiente*/
+.navegacion-principal a {
+    display: block;
+    text-align: center;
+    color: var(--blanco);
+    text-decoration: none;    
+    font-size: 2rem; /* 20 px*/
+    font-weight: bold;
+    padding: 1rem;
+}
+
+.navegacion-principal a:hover {
+    background-color: var(--primario);
+    color: var(--oscuro);
+}
+
+.hero {
+    background-image: url(../img/hero.jpg);
+    background-repeat: no-repeat;
+    background-size: cover; /*Cubre todo el ancho*/
+    height: 480px;
+    padding: 20px;
+    position: relative;
+    margin-bottom: 3rem;
+}
+
+.contenido-hero {
+    position: absolute;
+    background-color: rgba(0,0,0,0.6);
+    background-color: rgb(0 0 0 / 60%); /*2da. forma de hacerlo*/
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    /* Alinea vertical y horizontalmente*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenido-hero h2 , .contenido-hero p {
+    color: var(--blanco);
+}
+
+/*
+ * flex-direccion : define main axis
+ * justify-content : main axis
+ * align-items : across axis
+ */
+.ubicacion {
+    display: flex;
+    align-items: flex-end;
+}
+
+/* Servicios */ 
+@media (min-width: 768px) {
+    .servicios {
+        display: grid;
+        /* Primera forma */
+        /* grid-template-columns: 300px 300px; */
+        /* grid-template-rows: 200px 800px; */
+
+        /*shorhand*/
+        /* grid: 200px 800px / 300px 300px; */
+        /* grid-template-columns: 33.3% 33.3% 33.3%; */    
+
+        /* sEGUNDA FORMA*/
+        /* Existe otro con fr, abre fraccion que
+         * calcula automaticamente las medidas*/
+    /*grid-template-columns: 1fr 1fr 1fr;*/ /* 33.3*/
+
+    /*Tercera forma */
+    grid-template-columns: repeat(3, 1fr);
+    /*-------------------------------------*/ 
+    column-gap: 1rem;
+    }   
+}
+
+
+.servicio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.servicio h3 {
+    color: var(--secundario);
+    font-weight: normal;
+}
+
+.servicio .iconos {
+    height: 15rem;
+    width: 15rem;
+    background-color: var(--primario);
+    border-radius: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.servicio p {
+    line-height: 2;
+    text-align: center;
+}
+
+
+/* Contacto */
+.formulario {
+    background-color: var(--gris);
+    /* width: 60rem; */
+    /* Compara y toma el mas pequeño*/
+    width: min(60rem, 100%); 
+    margin: 0 auto;  /* Centrar elemento */
+    padding: 2rem;
+    border-radius: 1rem;
+
+}
+
+.formulario fieldset {
+    border: none;
+}
+
+.formulario legend {
+    text-align: center;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--primario);
+}
+
+/* Enfoque por modulos, es decir, seleccionar una clase
+ * y luego los elementos 
+ * Un modulo es un pieza de codigo que se puede reutilizar.
+ * Un objeto son componentes de interfaz web.
+ * Un objeto se repetite varias vaces siendo un modulo.
+ * Ideas principales:
+ * 1.- Seperar la estructura del diseño
+ * 2.- Seperar el contenido del contenendor
+ */
+
+@media (min-width: 768px) {
+    .contenedor-campos {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto auto auto;
+        column-gap: 1rem;
+    }   
+    .campo:nth-child(3), .campo:nth-child(4) {
+        grid-column: 1 / 3;
+    }
+}
+
+.campo {
+    margin-bottom: 1rem;
+}
+
+.campo label {
+    color: var(--blanco);
+    font-weight: bold;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.campo textarea {
+    height: 20rem;
+}
+
+/* Selecto de atributos */
+/* .campo input[type="text"] { */
+/*     background-color: red; */
+/* } */
+
+.input-text {
+    width: 100%;
+    border: none;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+}
+
+/* Sobre escribimos el ancho del boton */
+/* .enviar .boton { */
+/*     width: 100%; */
+/* } */
+
+.footer {
+    text-align: center;
+}
