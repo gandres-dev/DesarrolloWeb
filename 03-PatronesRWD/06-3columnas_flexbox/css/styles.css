@@ -48,3 +48,29 @@ p {
 }
 
 /** CODIGO AQUI **/
+
+/* Tamaño de una table aprox */
+@media (min-width: 768px) {
+    .contenedor-flex {
+        /* Habilitafmos la funcionalidades de flexbox */
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .contenido-principal {
+        /* Ajusta el ancho del item*/
+        flex-basis: calc(60% - 1rem);
+    }
+
+    .sidebar {
+        /* Ajusta el ancho de los item de flexbox */
+        flex-basis: calc(20% - 1rem);
+    }
+
+    /* Movemos el sidebar-1 a la izquierda */
+    .sidebar-1 {
+        /* Mueve primero el elemenot, y despues los otros
+        con forme va el flujo de html */
+        order: -1;
+    }
+}

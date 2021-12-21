@@ -39,3 +39,15 @@ h1 {
 }
 
 /** CODIGO AQUI **/
+@media (min-width: 768px) {
+    .tres-columnas {
+        /* Agregamos display grid para habitar los estilos con grid */
+        display: grid;
+        /* Le indicamos que sean tres columnas */
+        grid-template-columns: repeat(3, 1fr);
+        /* Otra alternativa seria utilizando porcentajes */
+        grid-template-columns: 33.3% 33.3% 33.3%;
+        /* Hacemos una separacion */
+        column-gap: 2rem;
+    }
+}

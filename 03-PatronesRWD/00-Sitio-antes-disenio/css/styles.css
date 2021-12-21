@@ -1,3 +1,6 @@
+/* Ajustamos la forma en se debe medir height and witd  de la caja
+y ajustamos el tamños de letra para que 1rem se 10px*/
+
 html {
     box-sizing: border-box;
     font-size: 62.5%;
@@ -19,13 +22,14 @@ img {
 }
 
 h1 {
-    font-size: 4rem;
+    font-size: 4rem;    
 }
 
 .contenedor {
     max-width: 1200px;
     width: 95%;
-    margin: 0 auto;
+    /* Centramos el contenedor */
+    margin: 0 auto; 
 }
 
 .entrada-blog a {
@@ -33,22 +37,8 @@ h1 {
     background-color: #2196F3;
     color: white;
     padding: 10px 20px;
-    text-decoration: none;
+    /* Quitamos el subrato del link*/
+    text-decoration: none; 
     font-weight: bold;
     text-transform: uppercase;
-}
-
-/** CODIGO AQUI **/
-@media (min-width: 768px) {
-    .contenedor {
-        display: grid;
-        
-        /* Alternativas de hacer lo mismo */
-        /* grid-template-columns: 50% 50%; */
-        /* grid-template-columns: repeat(2, 50%); */
-        /* grid-template-columns: 1fr 1fr; */
-        
-        grid-template-columns: repeat(2, 1fr);
-        column-gap: 2rem; 
-    }
 }

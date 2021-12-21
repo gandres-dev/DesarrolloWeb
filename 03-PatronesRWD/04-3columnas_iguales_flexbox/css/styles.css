@@ -39,3 +39,19 @@ h1 {
 }
 
 /** CODIGO AQUI **/
+@media (min-width: 768px) {
+    .tres-columnas {
+        display: flex;
+        /* Primera forma de hacerlo */
+        /* gap: 2rem; */
+
+        /* Segunda forma */
+        justify-content: space-between;
+    }
+    /* Segunda forma
+    Se debe seleccionar los elementos */
+    .entrada-blog {
+        /* Ajustar el factor de crecimiento */
+        flex: 0 0 calc(33.3% - 1rem);
+    }
+}
